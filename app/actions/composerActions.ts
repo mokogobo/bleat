@@ -9,7 +9,7 @@ const baseAgent = function(api) {
 
 	if (words[0] === "/agent") {
 		const name = words[1]
-		const code = currentText.substring(words[0].length + words[1].length + 3)
+		const code = currentText.substring(words[0].length + words[1].length + 2)
 		api.createAgent({name, code})
 	}
 }

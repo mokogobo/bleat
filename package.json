@@ -1,0 +1,23 @@
+{
+  "name": "constraint2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "firebase": "^2.4.1",
+    "immutable": "^3.7.4",
+    "lodash": "^3.10.0",
+    "mousetrap": "^1.5.3",
+    "node-uuid": "^1.4.3",
+    "numeric": "^1.2.6",
+    "react": "^0.13.3",
+    "reflux": "^0.2.8",
+    "requirejs": "^2.1.18"
+  }
+}

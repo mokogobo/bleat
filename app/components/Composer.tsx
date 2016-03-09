@@ -49,14 +49,15 @@ var Composer = React.createClass({
 
 	styles: {
 		root: {
-			position     : "absolute",
-			left         : 12,
-			right        : 12,
-			bottom       : 0,
-			boxShadow    : "0px 0px 12px rgba(0,0,0,0.15)",
-			borderRadius : 4,
-			padding      : 8,
-			display      : "flex"
+			position        : "absolute",
+			left            : 16,
+			right           : 16,
+			bottom          : 16,
+			boxShadow       : "0px 0px 12px rgba(0,0,0,0.15)",
+			borderRadius    : 4,
+			padding         : 8,
+			display         : "flex",
+			backgroundColor : "white",
 		},
 
 		textarea: {

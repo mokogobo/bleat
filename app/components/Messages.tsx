@@ -9,10 +9,20 @@ var Messages = React.createClass({
 		PureRenderMixin,
 	],
 
+	componentDidMount: function() {
+		this.scrollToBottom()
+	},
+
+	componentDidUpdate: function() {
+		this.scrollToBottom()
+	},
 
 	render: function() {
 		return (
-			<div>
+			<div
+				style = {this.styles.root}
+				ref   = {(root) => {this.root = root}}
+			>
 				{_.map(this.props.messages, this.renderMessage)}
 			</div>
 		)
@@ -20,21 +30,41 @@ var Messages = React.createClass({
 
 	renderMessage: function(message, key) {
 		return (
-			<div key={key} >
+			<div
+				key   = {key}
+				style = {this.styles.message}
+			>
 				<span>{message.text}</span>
 			</div>
 		)
 	},
 
+	/*
+		Helpers
+	*/
+
+	scrollToBottom: function() {
+		const root = React.findDOMNode(this)
+		root.scrollTop = root.clientHeight
+	},
 
 	/*
 		Styles
 	*/
 
 	styles: {
+		root: {
+			padding       : 24,
+			height        : "100%",
+			overflow      : "scroll",
+			paddingBottom : 80,
+		},
+
+		message: {
+			marginTop: 8,
+			fontSize: "1.2em"
+		},
 	},
-
-
 
 })
 

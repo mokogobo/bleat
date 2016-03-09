@@ -36,6 +36,7 @@ var App = React.createClass({
 			right      : 0,
 			bottom     : 0,
 			fontFamily : "Helvetica",
+			overflow   : "hidden",
 		},
 	},
 

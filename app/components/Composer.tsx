@@ -15,6 +15,7 @@ var Composer = React.createClass({
 		return (
 			<div style={this.styles.root}>
 				<textarea
+					autofocus = {true}
 					style     = {this.styles.textarea}
 					value     = {this.props.value}
 					onKeyDown = {this.handleKeyDown}

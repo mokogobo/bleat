@@ -1,6 +1,7 @@
 declare var _
 declare var React
 declare var Reflux
+declare var marked
 var PureRenderMixin = React.addons.PureRenderMixin
 
 var Messages = React.createClass({
@@ -34,7 +35,7 @@ var Messages = React.createClass({
 				key   = {key}
 				style = {this.styles.message}
 			>
-				<span>{message.text}</span>
+				<span dangerouslySetInnerHTML={{__html: marked(message.text)}}></span>
 			</div>
 		)
 	},
@@ -45,7 +46,7 @@ var Messages = React.createClass({
 
 	scrollToBottom: function() {
 		const root = React.findDOMNode(this)
-		root.scrollTop = root.clientHeight
+		root.scrollTop = root.scrollHeight
 	},
 
 	/*

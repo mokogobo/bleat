@@ -1,8 +1,9 @@
 declare var React
+declare var ReactDOM
 
 import App from "./components/App"
 
-React.render(
+ReactDOM.render(
 	<App />,
 	document.getElementById("root")
 )

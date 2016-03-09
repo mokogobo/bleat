@@ -2,6 +2,7 @@ declare var _
 declare var React
 declare var Reflux
 declare var marked
+declare var Codemirror
 var PureRenderMixin = React.addons.PureRenderMixin
 
 var Messages = React.createClass({
@@ -30,12 +31,30 @@ var Messages = React.createClass({
 	},
 
 	renderMessage: function(message, key) {
+		let value
+		if (message.text[0] === "/") {
+			value = (
+				<div style={this.styles.codeWrap}>
+					<Codemirror
+						value   = {message.text}
+						options = {{
+							readOnly : true
+						}}
+					/>
+				</div>
+			)
+		}
+		else {
+			value = (
+				<span dangerouslySetInnerHTML={{__html: marked(message.text)}}></span>
+			)
+		}
 		return (
 			<div
 				key   = {key}
 				style = {this.styles.message}
 			>
-				<span dangerouslySetInnerHTML={{__html: marked(message.text)}}></span>
+				{value}
 			</div>
 		)
 	},
@@ -45,8 +64,7 @@ var Messages = React.createClass({
 	*/
 
 	scrollToBottom: function() {
-		const root = React.findDOMNode(this)
-		root.scrollTop = root.scrollHeight
+		this.root.scrollTop = this.root.scrollHeight
 	},
 
 	/*
@@ -65,6 +83,12 @@ var Messages = React.createClass({
 			marginTop: 8,
 			fontSize: "1.2em"
 		},
+
+		codeWrap: {
+			padding         : 4,
+			backgroundColor : "rgb(245,245,245)",
+			borderRadius    : 2,
+		}
 	},
 
 })

@@ -17,7 +17,9 @@
     "mousetrap": "1.5.3",
     "node-uuid": "1.4.3",
     "numeric": "1.2.6",
-    "react": "0.13.3",
+    "react": "0.14.7",
+    "react-codemirror": "^0.2.5",
+    "react-dom": "0.14.7",
     "reflux": "0.2.8",
     "requirejs": "2.1.18"
   }

@@ -1,5 +1,6 @@
 declare var React
 declare var Reflux
+declare var Codemirror
 var PureRenderMixin = React.addons.PureRenderMixin
 
 import * as composerActions from "../actions/composerActions"
@@ -13,13 +14,16 @@ var Composer = React.createClass({
 
 	render: function() {
 		return (
-			<div style={this.styles.root}>
-				<textarea
-					autofocus = {true}
-					style     = {this.styles.textarea}
+			<div
+				style     = {this.styles.root}
+				onKeyDown = {this.handleKeyDown}
+			>
+				<Codemirror
 					value     = {this.props.value}
-					onKeyDown = {this.handleKeyDown}
-					onChange  = {this.handleInputChange}
+					onChange  = {this.handleChange}
+					options   = {{
+						lineNumbers : false,
+					}}
 				/>
 			</div>
 		)
@@ -29,14 +33,14 @@ var Composer = React.createClass({
 		Submit
 	*/
 
-	handleInputChange: function(e) {
+	handleChange: function(newValue) {
 		composerActions.updateValue({
-			message: e.target.value
+			message: newValue
 		})
 	},
 
 	handleKeyDown: function(e) {
-		if (e.keyCode === 13 && !e.shiftKey) {
+		if (e.keyCode === 13 && e.metaKey) {
 			e.preventDefault()
 			composerActions.submit({
 				message: this.props.value
@@ -51,24 +55,18 @@ var Composer = React.createClass({
 	styles: {
 		root: {
 			position        : "absolute",
+			zIndex          : 99999,
 			left            : 16,
 			right           : 16,
 			bottom          : 16,
 			boxShadow       : "0px 0px 12px rgba(0,0,0,0.15)",
 			borderRadius    : 4,
 			padding         : 8,
-			display         : "flex",
 			backgroundColor : "white",
+			fontSize        : "1.5em",
+			overflow        : "scroll",
 		},
 
-		textarea: {
-			flexGrow : "1",
-			outline  : "none",
-			border   : "none",
-			resize   : "none",
-			fontSize : "1.5em",
-			height   : 32,
-		}
 	},
 
 

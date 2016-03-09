@@ -5,13 +5,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>Bleat</title>
 		<link rel="shortcut icon" href="http://www.gravatar.com/avatar/3b964d84fcfbcdf59089c8bd7309f0b7.ico" />
+		<link rel="stylesheet" type="text/css" href="/node_modules/codemirror/lib/codemirror.css">
 		<script src="/node_modules/react/dist/react-with-addons.js"></script>
+		<script src="/node_modules/react-dom/dist/react-dom.js"></script>
 		<script src="/node_modules/reflux/dist/reflux.min.js"></script>
 		<script src="/node_modules/lodash/index.js"></script>
 		<script src="/node_modules/immutable/dist/immutable.min.js"></script>
 		<script src="/node_modules/node-uuid/uuid.js"></script>
 		<script src="/node_modules/lodash/index.js"></script>
 		<script src="/node_modules/marked/marked.min.js"></script>
+		<script src="/node_modules/react-codemirror/dist/react-codemirror.min.js"></script>
 		<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 		<script data-main="/build/main.js" src="/node_modules/requirejs/require.js"></script>
 	</head>
@@ -19,6 +22,11 @@
 		<style>
 			* {
 				box-sizing: border-box;
+			}
+
+			.CodeMirror {
+				height     : auto;
+				background : none;
 			}
 		</style>
 		<div id="root"></div>

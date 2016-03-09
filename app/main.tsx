@@ -1,5 +1,6 @@
 declare var React
 declare var ReactDOM
+declare var uuid
 
 import App from "./components/App"
 

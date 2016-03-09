@@ -4,6 +4,10 @@ declare var Immutable
 declare var uuid
 declare var Firebase
 
+if (window.location.pathname === "/") {
+	window.location.assign("/" + uuid.v4())
+}
+
 const firebaseRoot = new Firebase("https://bleat.firebaseio.com/")
 
 const defaultFirebaseValue = {

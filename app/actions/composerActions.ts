@@ -42,6 +42,12 @@ export const submit = function(args: {
 		createMessage: function(newMessage) {
 			messagesRef.push(newMessage)
 		},
+		getMessagesRef: function() {
+			return messagesRef
+		},
+		getAgentsRef: function() {
+			return agentsRef
+		},
 		createAgent: function(newAgent) {
 			agentsRef.once("value", (snapshot) => {
 				const agents = snapshot.val()

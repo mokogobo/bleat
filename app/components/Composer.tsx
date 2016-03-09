@@ -13,13 +13,13 @@ var Composer = React.createClass({
 
 	render: function() {
 		return (
-			<div>
+			<div style={this.styles.root}>
 				<textarea
+					style     = {this.styles.textarea}
 					value     = {this.props.value}
 					onKeyDown = {this.handleKeyDown}
 					onChange  = {this.handleInputChange}
 				/>
-				<div onClick={this.handleClick}>Submit</div>
 			</div>
 		)
 	},
@@ -43,18 +43,30 @@ var Composer = React.createClass({
 		}
 	},
 
-	handleClick: function(e) {
-		e.preventDefault()
-		composerActions.submit({
-			message: this.props.value
-		})
-	},
-
 	/*
 		Styles
 	*/
 
 	styles: {
+		root: {
+			position     : "absolute",
+			left         : 12,
+			right        : 12,
+			bottom       : 0,
+			boxShadow    : "0px 0px 12px rgba(0,0,0,0.15)",
+			borderRadius : 4,
+			padding      : 8,
+			display      : "flex"
+		},
+
+		textarea: {
+			flexGrow : "1",
+			outline  : "none",
+			border   : "none",
+			resize   : "none",
+			fontSize : "1.5em",
+			height   : 32,
+		}
 	},
 
 

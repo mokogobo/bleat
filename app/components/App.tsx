@@ -15,7 +15,6 @@ var App = React.createClass({
 
 
 	render: function() {
-		console.log("render: ", this.state.app.firebaseValue)
 		return (
 			<div style={this.styles.root}>
 				<Messages messages={this.state.app.firebaseValue.messages} />
@@ -31,11 +30,12 @@ var App = React.createClass({
 
 	styles: {
 		root: {
-			position: "absolute",
-			top: 0,
-			left: 0,
-			right: 0,
-			bottom: 0,
+			position   : "absolute",
+			top        : 0,
+			left       : 0,
+			right      : 0,
+			bottom     : 0,
+			fontFamily : "Helvetica",
 		},
 	},
 

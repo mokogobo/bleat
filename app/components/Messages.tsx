@@ -13,15 +13,14 @@ var Messages = React.createClass({
 	render: function() {
 		return (
 			<div>
-				Messages
 				{_.map(this.props.messages, this.renderMessage)}
 			</div>
 		)
 	},
 
-	renderMessage: function(message) {
+	renderMessage: function(message, key) {
 		return (
-			<div>
+			<div key={key} >
 				<span>{message.text}</span>
 			</div>
 		)

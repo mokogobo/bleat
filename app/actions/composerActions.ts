@@ -5,7 +5,7 @@ import AppStore from "../stores/AppStore"
 // base agent.
 const baseAgent = function(api) {
 	const currentText = api.getCurrentMessage().text
-	const words       = currentText.split(" ")
+	const words       = currentText.split(/\s/g)
 
 	if (words[0] === "/agent") {
 		const name = words[1]

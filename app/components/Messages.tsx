@@ -32,6 +32,11 @@ var Messages = React.createClass({
 
 	renderMessage: function(message, key) {
 		let text = message.text || ""
+
+		if (text.toString) {
+			text = text.toString()
+		}
+
 		let value
 		if (text[0] === "/") {
 			value = (

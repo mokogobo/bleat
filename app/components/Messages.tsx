@@ -31,12 +31,13 @@ var Messages = React.createClass({
 	},
 
 	renderMessage: function(message, key) {
+		let text = message.text || ""
 		let value
-		if (message.text[0] === "/") {
+		if (text[0] === "/") {
 			value = (
 				<div style={this.styles.codeWrap}>
 					<Codemirror
-						value   = {message.text}
+						value   = {text}
 						options = {{
 							readOnly : true
 						}}
@@ -46,7 +47,7 @@ var Messages = React.createClass({
 		}
 		else {
 			value = (
-				<span dangerouslySetInnerHTML={{__html: marked(message.text)}}></span>
+				<span dangerouslySetInnerHTML={{__html: marked(text)}}></span>
 			)
 		}
 		return (

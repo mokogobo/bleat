@@ -7,7 +7,8 @@ declare var Firebase
 const firebaseRoot = new Firebase("https://bleat.firebaseio.com/")
 
 const defaultFirebaseValue = {
-	messages: [],
+	messages : [],
+	agents   : []
 }
 
 var AppStore = Reflux.createStore({

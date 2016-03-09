@@ -39,7 +39,8 @@ var Messages = React.createClass({
 					<Codemirror
 						value   = {text}
 						options = {{
-							readOnly : true
+							readOnly     : true,
+							lineWrapping : true,
 						}}
 					/>
 				</div>

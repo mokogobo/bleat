@@ -22,7 +22,8 @@ var Composer = React.createClass({
 					value     = {this.props.value}
 					onChange  = {this.handleChange}
 					options   = {{
-						lineNumbers : false,
+						lineNumbers  : false,
+						lineWrapping : true,
 					}}
 				/>
 			</div>
